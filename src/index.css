@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@theme {
+    --font-josefin: "Josefin Sans", sans-serif;
+    --font-Lato: "Lato", sans-serif;
+    --breakpoint-2xs: 300px;
+    --breakpoint-xs: 375px;
+}
+
+
+
+.slick-slide {
+  padding: 0 15px;
+}
+
+
+ .slick-list {
+  margin: 0 10px;
+ }
+
+/* dots container */
+.disslider .slick-dots {
+  width: 200px;
+  margin: 20px auto 0;   /* bottom center */
+  overflow: hidden;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+/* each dot */
+.disslider .slick-dots li {
+  width: auto;
+  height: auto;
+  margin: 0;
+  flex-shrink: 0; /* important: dots squeeze হবে না */
+}
+
+/* normal dot */
+.disslider .slick-dots li button:before {
+  font-size: 8px;
+  color: red;
+  opacity: 1;
+}
+
+/* active dot */
+.disslider .slick-dots li.slick-active button:before {
+  color: blue;
+  font-size: 10px;
+}
+
+/*update */
+
+.disslider .slick-dots {
+  width: 200px;
+  margin: 20px auto 0;
+  overflow: hidden;
+
+  display: flex !important;
+  justify-content: flex-start;
+  gap: 8px;
+
+  scroll-behavior: smooth;
+}
+
+.disslider .slick-dots li {
+  flex-shrink: 0;
+}
+
