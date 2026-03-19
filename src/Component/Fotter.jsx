@@ -21,7 +21,7 @@ const Fotter = () => {
                 <input
                     type="text"
                     placeholder="Enter Email Address"
-                    className="w-[300px] px-4 py-3 outline-none bg-white border border-gray-200"
+                    className="2xs:w-full xl:w-[300px] px-4 py-3 outline-none bg-white border border-gray-200"
                 />
 
                 <button className="bg-[#FB2E86] px-6 text-white hover:bg-[#e81c74] transition">

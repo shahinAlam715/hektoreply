@@ -1,94 +1,18 @@
-import React, { useContext } from 'react'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import Container from './Container';
-import Slider from 'react-slick';
-import { FaSearchPlus, FaShoppingCart } from 'react-icons/fa';
-import { FaRegHeart } from 'react-icons/fa6';
-import { Apidata } from './ContextApi';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import Container from './Container'
+import { FaSearchPlus, FaShoppingCart } from 'react-icons/fa'
+import { FaRegHeart } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
 
-
-function SampleNextArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <div
-      className="bg-[blue] h-[40px] w-[40px] rounded-full flex justify-center items-center absolute top-1/2 -translate-y-1/2 right-0"
-      onClick={onClick}
-    >
-      <i><IoIosArrowForward  className='text-[#ffff] text-[24px]'/></i>
-    </div>
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <div
-      className="bg-[blue] h-[40px] w-[40px] rounded-full flex justify-center items-center absolute top-1/2 left-0 z-999 -translate-y-1/2"
-      onClick={onClick}
-    >
-      <i><IoIosArrowBack  className='text-[#ffff] text-[24px]'/></i>
-    </div>
-  );
-}
-
-const NewArrival = () => {
-
-    let info = useContext(Apidata)
-    console.log(info);
-
-
-  const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 4,
-  initialSlide: 0,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-
-   responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-};
-
-
+const Post = ({allpage}) => {
   return (
     <>
      <section>
         <Container>
-            <div className="">
-                <h2 className='2xs:text-[20px] xs:text-[28px] sm:text-[36px] lg:text-[40px] xl:text-[42px] font-bold font-josefin text-[#00009D] text-center my-[64px]'>Featured Products</h2>
-            </div>
-                <div className="my-[64px] overflow-hidden">
-
-                  <Slider {...settings}>
-                  {info.map((item)=>(
-                  <div className="group relative w-full bg-[#F6F7FB] shadow-[0_0_15px_rgba(0,0,0,0.15)]">
+            <div className="grid 2xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-4 mt-[64px]">
+                {allpage.map((item)=>(
+                <div className="">
+                     <div className="group relative w-full bg-[#F6F7FB] shadow-[0_0_15px_rgba(0,0,0,5)]">
                       <div className="absolute top-0 left-0 flex gap-x-2 my-3 ml-2 opacity-0 group-hover:opacity-100">
                         <div className="h-[40px] w-[40px] bg-[#EEEFFB] hover:bg-[#00009D] flex items-center justify-center rounded-full">
                           <i><FaShoppingCart  className='text-[#1389FF] hover:text-[#ffff] text-[18px]'/></i>
@@ -100,11 +24,10 @@ const NewArrival = () => {
                           <i><FaSearchPlus  className='text-[#1389FF] text-[20px] hover:text-[#ffff]'/></i>
                         </div>
                       </div>
-                      <div className="pt-[64px] max-w-full 2xs:h-[150px] xl:h-auto flex justify-center">
+                      <div className="pt-[64px] max-w-full 2xs:h-[350px] xl:h-auto flex justify-center">
                         <Link to="/product">
                         <img src={item.thumbnail} alt="feauter" />
                         </Link>
-
                       </div>
                       <div className="flex justify-center opacity-0 group-hover:opacity-100">
                         <button className='text-[12px] bg-[#08D15F] hover:bg-[#00009D] text-[#ffff] rounded-[4px] w-[150px] py-3 my-2'>View Details</button>
@@ -126,14 +49,13 @@ const NewArrival = () => {
                         </div>
                       </div>
                   </div>
-                  ))}
-                  </Slider>
                 </div>
-
+                ))}
+            </div>
         </Container>
     </section>
     </>
   )
 }
 
-export default NewArrival
+export default Post

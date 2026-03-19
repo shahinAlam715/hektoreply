@@ -1,16 +1,18 @@
-import Banner from "./Component/Banner"
-import DiscountIteam from "./Component/DiscountIteam"
-import Fotter from "./Component/Fotter"
-import Header from "./Component/Header"
-import LatestBlog from "./Component/LatestBlog"
-import Latestproduct from "./Component/Latestproduct"
-import LatestUpdate from "./Component/LatestUpdate"
-import Navbar from "./Component/Navbar"
-import NewArrival from "./Component/NewArrival"
-import SpoxOffer from "./Component/SpoxOffer"
-import TopCategory from "./Component/TopCategory"
-import TreandingProduct from "./Component/TreandingProduct"
-import UniqFeauters from "./Component/UniqFeauters"
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom"
+import Home from "./Page/Home"
+import RootLayout from "./Page/RootLayout"
+import Product from "./Page/Product"
+
+
+
+let router = createBrowserRouter(createRoutesFromElements(
+
+  <Route element={<RootLayout/>}>s
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/product" element={<Product/>}></Route>
+  </Route>
+
+))
 
 
 function App() {
@@ -18,19 +20,7 @@ function App() {
 
   return (
     <>
-     <Header/>
-     <Navbar/>
-     <Banner/>
-     <NewArrival/>
-     <Latestproduct/>
-     <SpoxOffer/>
-     <UniqFeauters/>
-     <TreandingProduct/>
-     <DiscountIteam/>
-     <TopCategory/>
-     <LatestUpdate/>
-     <LatestBlog/>
-     <Fotter/>
+    <RouterProvider router={router}></RouterProvider>
     </>
   )
 }
